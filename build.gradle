@@ -1,6 +1,6 @@
 buildscript {
     ext {
-        springBootVersion = '2.0.0.BUILD-SNAPSHOT'
+        springBootVersion = '1.5.2.RELEASE'
     }
     repositories {
         mavenCentral()
@@ -15,7 +15,7 @@ buildscript {
 apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'idea'
-apply plugin: 'org.springframework.boot'
+apply plugin: 'spring-boot'
 
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = 1.8
@@ -35,3 +35,9 @@ dependencies {
     testCompile('org.springframework.boot:spring-boot-starter-test')
     runtime('com.h2database:h2:1.4.192')
 }
+
+ext['thymeleaf.version'] = '3.0.3.RELEASE'
+ext['thymeleaf-spring4.version'] = '3.0.3.RELEASE'
+ext['thymeleaf-layout-dialect.version'] = '2.1.2'
+ext['thymeleaf-extras-data-attribute.version'] = '2.0.1'
+ext['thymeleaf-extras-java8time.version'] = '3.0.0.RELEASE'

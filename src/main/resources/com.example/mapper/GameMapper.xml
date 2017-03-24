@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mapper.GameMapper">
+    <resultMap type="com.example.Game" id="game">
+        <id column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="new_used_type" property="newUsedType"/>
+        <result column="hardware" property="hardware"/>
+        <result column="genre" property="genre"/>
+    </resultMap>
+
+    <select id="findBy" resultMap="game">
+        select
+        id,
+        name,
+        new_used_type,
+        hardware,
+        genre
+        FROM
+        games
+        <where>
+            <if test="criteria.newUsedType != null">
+                AND new_used_type = #{criteria.newUsedType}
+            </if>
+            <if test="criteria.hardwareType != null">
+                AND hardware = #{criteria.hardwareType}
+            </if>
+            <if test="criteria.genre != null">
+                AND genre = #{criteria.genre}
+            </if>
+        </where>
+    </select>
+
+</mapper>
