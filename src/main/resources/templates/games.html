@@ -42,7 +42,7 @@
             </div>
         </form>
     </div>
-    <form th:action="@{/buy}" method="post">
+    <form th:action="@{/games/buy}" method="post">
         <table class="table table-striped jambo_table">
             <thead>
             <tr>
@@ -57,7 +57,7 @@
             <tr th:each="game : ${games}" th:object="${game}">
                 <td style="padding:0;white-space: nowrap;">
                     <div style="padding:8px">
-                        <input type="checkbox" th:value="*{id}" th:field="${gameIds}">
+                        <input type="checkbox" th:value="*{id}" name="gameIds">
                     </div>
                 </td>
                 <td style="padding:0;white-space: nowrap;">

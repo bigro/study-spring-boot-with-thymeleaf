@@ -7,6 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,7 +16,7 @@ import java.util.List;
  * Created by ooguro on 2017/03/19.
  */
 @Controller
-public class HelloController {
+public class GameController {
 
     @Autowired
     GameMapper gameMapper;
@@ -62,6 +63,11 @@ public class HelloController {
         model.addAttribute("games", games);
         model.addAttribute("criteria", criteria);
         return "games";
+    }
+
+    @PostMapping("games/buy")
+    public String buy(@RequestParam("gameIds") List<String> gameIds) {
+        return "result";
     }
 
 //    @InitBinder
