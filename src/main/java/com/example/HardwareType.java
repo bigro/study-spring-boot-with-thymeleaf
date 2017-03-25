@@ -20,4 +20,8 @@ public enum HardwareType {
     public String getValue() {
         return value;
     }
+
+    public boolean available() {
+        return this != HardwareType.NONE;
+    }
 }

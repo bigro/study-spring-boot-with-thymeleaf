@@ -7,7 +7,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -57,8 +56,8 @@ public class HelloController {
         return "games";
     }
 
-    @PostMapping("/games")
-    public String search(@ModelAttribute("criteria") CriteriaForm criteria, @RequestParam("hardwareType") HardwareType hardwareType, Model model) {
+    @PostMapping("games")
+    public String search(@ModelAttribute("criteria") CriteriaForm criteria, Model model) {
         List<Game> games = gameMapper.findBy(criteria);
         model.addAttribute("games", games);
         model.addAttribute("criteria", criteria);
@@ -67,7 +66,7 @@ public class HelloController {
 
 //    @InitBinder
 //    public void initBinder(WebDataBinder binder) {
-//        binder.setAllowedFields("hardwareType", "newUsedType", "genre");
+//        binder.setAllowedFields("hardwareType", "newUsedType", "genres");
 //    }
 
 }

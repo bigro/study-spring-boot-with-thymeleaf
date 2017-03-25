@@ -24,11 +24,14 @@
             <if test="criteria.newUsedType != null">
                 AND new_used_type = #{criteria.newUsedType}
             </if>
-            <if test="criteria.hardwareType != null">
+            <if test="criteria.hardwareType.available()">
                 AND hardware = #{criteria.hardwareType}
             </if>
-            <if test="criteria.genre != null">
-                AND genre = #{criteria.genre}
+            <if test="!criteria.genres.isEmpty()">
+                AND
+                <foreach item="genre" collection="criteria.genres" open="genre IN (" separator="," close=")">
+                    #{genre}
+                </foreach>
             </if>
         </where>
     </select>

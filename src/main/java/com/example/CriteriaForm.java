@@ -1,5 +1,7 @@
 package com.example;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 /**
@@ -8,12 +10,12 @@ import java.util.Objects;
 public class CriteriaForm {
     HardwareType hardwareType = HardwareType.NONE;
     NewUsedType newUsedType = NewUsedType.新品;
-    GenreType genre = GenreType.RPG;
+    List<GenreType> genres = new ArrayList<>();
 
-    public CriteriaForm(HardwareType hardwareType, NewUsedType newUsedType, GenreType genre) {
+    public CriteriaForm(HardwareType hardwareType, NewUsedType newUsedType, List<GenreType> genres) {
         this.hardwareType = hardwareType;
         this.newUsedType = newUsedType;
-        this.genre = genre;
+        this.genres = genres;
     }
 
     public CriteriaForm() {
@@ -27,8 +29,8 @@ public class CriteriaForm {
         return newUsedType;
     }
 
-    public GenreType getGenre() {
-        return genre;
+    public List<GenreType> getGenres() {
+        return genres;
     }
 
     public boolean newUsedTypeIsEmpty() {
@@ -36,7 +38,7 @@ public class CriteriaForm {
     }
 
     public boolean genreIsEmpty() {
-        return Objects.isNull(genre);
+        return Objects.isNull(genres);
     }
 
     public void setHardwareType(HardwareType hardwareType) {
@@ -47,7 +49,7 @@ public class CriteriaForm {
         this.newUsedType = newUsedType;
     }
 
-    public void setGenre(GenreType genre) {
-        this.genre = genre;
+    public void setGenres(List<GenreType> genres) {
+        this.genres = genres;
     }
 }

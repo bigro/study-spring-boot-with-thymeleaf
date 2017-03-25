@@ -15,7 +15,7 @@
         <form th:action="@{/games}" method="post" th:object="${criteria}">
             <div class="panel-body">
                 <div class="input-group">
-                    <select class="form-control">
+                    <select class="form-control" th:field="*{hardwareType}">
                         <option th:each="hardwareType : ${hardwareTypes}" th:value="${hardwareType}"
                                 th:text="${hardwareType.getValue()}"></option>
                     </select>
@@ -32,8 +32,8 @@
                 <div class="input-group">
                     <ul class="list-inline">
                         <li th:each="genre : ${genreTypes}">
-                            <input type="checkbox" th:value="${genre}" th:id="genre"
-                                   th:field="*{genre}"/>
+                            <input type="checkbox" th:value="${genre}" th:id="genres"
+                                   th:field="*{genres}"/>
                             <label th:for="genre" th:text="${genre}"></label>
                         </li>
                     </ul>
